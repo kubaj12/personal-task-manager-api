@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: personal-task-manager-api
+  security:
+    name: admin
+    password: mojehaslo123
