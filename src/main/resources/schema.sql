@@ -12,7 +12,7 @@ CREATE TABLE tasks (
     description VARCHAR(255),
     priority VARCHAR(20) NOT NULL CONSTRAINT check_prority CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH')),
     status VARCHAR(20) NOT NULL CONSTRAINT check_status CHECK (status IN ('TODO','IN_PROGRESS','DONE')),
-    deadline TIMESTAMP WITH TIME ZONE,
+    deadline TIMESTAMP WITH TIME ZONE DEFAULT NULL,
 
     CONSTRAINT fk_tasks_users
                    FOREIGN KEY(user_id)
