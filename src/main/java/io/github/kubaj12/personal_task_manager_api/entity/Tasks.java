@@ -1,10 +1,18 @@
 package io.github.kubaj12.personal_task_manager_api.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name="tasks")
+@Setter
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //only Hibernate can use this class
 public class Tasks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
