@@ -10,13 +10,18 @@ CREATE TABLE tasks (
     user_id BIGINT NOT NULL,
     title VARCHAR(100) NOT NULL,
     description VARCHAR(255),
-    priority VARCHAR(20) NOT NULL CONSTRAINT check_prority CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH')),
-    status VARCHAR(20) NOT NULL CONSTRAINT check_status CHECK (status IN ('TODO','IN_PROGRESS','DONE')),
+    priority VARCHAR(20) NOT NULL DEFAULT 'LOW',
+    status VARCHAR(20) NOT NULL DEFAULT 'TODO',
     deadline TIMESTAMP WITH TIME ZONE DEFAULT NULL,
 
     CONSTRAINT fk_tasks_users
                    FOREIGN KEY(user_id)
-                       REFERENCES users(id) ON DELETE CASCADE
+                       REFERENCES users(id) ON DELETE CASCADE,
+
+    CONSTRAINT check_prority CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH')),
+
+    CONSTRAINT check_status CHECK (status IN ('TODO','IN_PROGRESS','DONE'))
+
 );
 
 CREATE TABLE tags (
