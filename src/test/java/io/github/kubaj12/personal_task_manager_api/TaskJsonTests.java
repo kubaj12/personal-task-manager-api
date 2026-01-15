@@ -19,19 +19,15 @@ public class TaskJsonTests {
     @Autowired
     private JacksonTester<Task[]> jsonList;
 
-    private Task[] taskList;
+    private Task[] taskArray;
 
     @BeforeEach
     void setUp() {
-//        tasksList = Arrays.array(new Tasks(),
-//                new Tasks(),
-//                new Tasks(),
-//                new Tasks()
-//                )
+//        taskArray = new TaskDto[]{TaskDto.builder()};
     }
 
     @Test
     void taskSerializationTest() {
-//        Tasks tasks = new Tasks();
+        Task task = Task.builder();
     }
 }
