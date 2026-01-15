@@ -13,7 +13,7 @@ import java.time.OffsetDateTime;
 @Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) //only Hibernate can use this class
-public class Tasks {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,10 +22,10 @@ public class Tasks {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private TasksStatus status;
+    private TaskStatus status;
 
     @Enumerated(EnumType.STRING)
-    private TasksPriority priority;
+    private TaskPriority priority;
 
     private OffsetDateTime deadline;
 }
