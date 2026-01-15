@@ -12,7 +12,7 @@ CREATE TABLE tasks (
     description VARCHAR(255),
     priority VARCHAR(20) NOT NULL DEFAULT 'LOW',
     status VARCHAR(20) NOT NULL DEFAULT 'TODO',
-    deadline TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    deadline TIMESTAMP WITH TIME ZONE,
 
     CONSTRAINT fk_tasks_users
                    FOREIGN KEY(user_id)
