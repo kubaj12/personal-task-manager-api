@@ -1,10 +1,6 @@
 package io.github.kubaj12.personal_task_manager_api;
 
 import io.github.kubaj12.personal_task_manager_api.dto.TaskDto;
-import io.github.kubaj12.personal_task_manager_api.entity.Task;
-
-// dodac zaleznosci spring boot do testowania JSOna
-// Ten obiekt i adnotacje
 
 import io.github.kubaj12.personal_task_manager_api.entity.TaskPriority;
 import io.github.kubaj12.personal_task_manager_api.entity.TaskStatus;
@@ -14,16 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
 import java.time.OffsetDateTime;
 
 @JsonTest
-public class TaskJsonTests {
+public class TaskDtoJsonTests {
 
     @Autowired
-    private JacksonTester<Task> json;
+    private JacksonTester<TaskDto> json;
 
     @Autowired
-    private JacksonTester<Task[]> jsonList;
+    private JacksonTester<TaskDto[]> jsonList;
 
     private TaskDto[] taskArray;
 
@@ -32,10 +31,11 @@ public class TaskJsonTests {
         taskArray = new TaskDto[]{
                 TaskDto.builder()
                         .id(1L)
-                        .title("Naprawa błędu w logowaniu")
+                        .user_id(1L)
+                        .title("Aktualizacja dokumentacji")
 //                        .description("Użytkownicy zgłaszają błąd 500 przy próbie resetu hasła.")
-                        .status(TaskStatus.IN_PROGRESS)
-                        .priority(TaskPriority.HIGH)
+                        .status(TaskStatus.TODO)
+                        .priority(TaskPriority.MEDIUM)
                         .deadline(OffsetDateTime.parse("2026-01-10T12:00:00+02:00"))
                         .build(),
 
@@ -82,9 +82,10 @@ public class TaskJsonTests {
     }
 
     @Test
-    void taskSerializationTest() {
+    void taskDtoSerializationTest() throws IOException {
         TaskDto task = taskArray[0];
 
+        assertThat(json.write(task)).isStrictlyEqualToJson("singleTaskDto.json");
         // do obiektu json
         // sprawdzic czy json zgadza sie z wartosicami task
     }

@@ -7,5 +7,5 @@ import lombok.Builder;
 import java.time.OffsetDateTime;
 
 @Builder
-public record TaskDto(Long id, String title, String description, TaskStatus status, TaskPriority priority, OffsetDateTime deadline) {
+public record TaskDto(Long id, Long user_id, String title, String description, TaskStatus status, TaskPriority priority, OffsetDateTime deadline) {
 }
