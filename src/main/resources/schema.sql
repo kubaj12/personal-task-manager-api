@@ -18,7 +18,7 @@ CREATE TABLE tasks (
                    FOREIGN KEY(user_id)
                        REFERENCES users(id) ON DELETE CASCADE,
 
-    CONSTRAINT check_prority CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH')),
+    CONSTRAINT check_priority CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH')),
 
     CONSTRAINT check_status CHECK (status IN ('TODO','IN_PROGRESS','DONE'))
 
