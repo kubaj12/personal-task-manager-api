@@ -1,9 +1,9 @@
-//{
-//  "id": "1",
-//  "user_id": "1",
-//  "title": "2",
-//  "description": "To jest test",
-//  "priority": "",
-//  "status": "",
-//  "deadline": ""
-//}
+{
+  "id": 1,
+  "user_id": 1,
+  "title": "Aktualizacja dokumentacji",
+  "description": null,
+  "priority": "MEDIUM",
+  "status": "TODO",
+  "deadline": "2026-01-10T12:00:00+02:00"
+}

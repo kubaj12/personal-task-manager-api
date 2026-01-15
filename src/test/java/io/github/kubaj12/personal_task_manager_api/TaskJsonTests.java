@@ -30,14 +30,13 @@ public class TaskJsonTests {
     @BeforeEach
     void setUp() {
         taskArray = new TaskDto[]{
-                // 1. Zadanie z bliskim terminem (za 2 dni)
                 TaskDto.builder()
                         .id(1L)
                         .title("Naprawa błędu w logowaniu")
-                        .description("Użytkownicy zgłaszają błąd 500 przy próbie resetu hasła.")
+//                        .description("Użytkownicy zgłaszają błąd 500 przy próbie resetu hasła.")
                         .status(TaskStatus.IN_PROGRESS)
                         .priority(TaskPriority.HIGH)
-                        .deadline(OffsetDateTime.now().plusDays(2))
+                        .deadline(OffsetDateTime.parse("2026-01-10T12:00:00+02:00"))
                         .build(),
 
                 // 2. Zadanie już po terminie (wczoraj)
@@ -85,5 +84,8 @@ public class TaskJsonTests {
     @Test
     void taskSerializationTest() {
         TaskDto task = taskArray[0];
+
+        // do obiektu json
+        // sprawdzic czy json zgadza sie z wartosicami task
     }
 }
