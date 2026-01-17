@@ -97,7 +97,7 @@ public class TaskDtoJsonTests {
         assertThat(json.write(task)).hasJsonPathStringValue("@.title");
         assertThat(json.write(task)).extractingJsonPathStringValue("@.title").isEqualTo("Aktualizacja dokumentacji");
 
-        assertThat(json.write(task)).hasJsonPath("@.description");
+        assertThat(json.write(task)).hasEmptyJsonPathValue("@.description");
 
         assertThat(json.write(task)).hasJsonPathStringValue("@.priority");
         assertThat(json.write(task)).extractingJsonPathStringValue("@.priority").isEqualTo(TaskPriority.MEDIUM.name());
