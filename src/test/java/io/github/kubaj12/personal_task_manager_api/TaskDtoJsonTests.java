@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
+import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -86,7 +87,25 @@ public class TaskDtoJsonTests {
         TaskDto task = taskArray[0];
 
         assertThat(json.write(task)).isStrictlyEqualToJson("singleTaskDto.json");
-        // do obiektu json
-        // sprawdzic czy json zgadza sie z wartosicami task
+
+        assertThat(json.write(task)).hasJsonPathNumberValue("@.id");
+        assertThat(json.write(task)).extractingJsonPathNumberValue("@.id").isEqualTo(1);
+
+        assertThat(json.write(task)).hasJsonPathNumberValue("@.user_id");
+        assertThat(json.write(task)).extractingJsonPathNumberValue("@.user_id").isEqualTo(1);
+
+        assertThat(json.write(task)).hasJsonPathStringValue("@.title");
+        assertThat(json.write(task)).extractingJsonPathStringValue("@.title").isEqualTo("Aktualizacja dokumentacji");
+
+        assertThat(json.write(task)).hasJsonPath("@.description");
+
+        assertThat(json.write(task)).hasJsonPathStringValue("@.priority");
+        assertThat(json.write(task)).extractingJsonPathStringValue("@.priority").isEqualTo(TaskPriority.MEDIUM.name());
+
+        assertThat(json.write(task)).hasJsonPathStringValue("@.status");
+        assertThat(json.write(task)).extractingJsonPathStringValue("@.status").isEqualTo(TaskStatus.TODO.name());
+
+        assertThat(json.write(task)).hasJsonPathStringValue("@.deadline");
+        assertThat(json.write(task)).extractingJsonPathStringValue("@.deadline").isEqualTo(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss+02:00").format(OffsetDateTime.parse("2026-01-10T12:00:00+02:00")));
     }
 }
