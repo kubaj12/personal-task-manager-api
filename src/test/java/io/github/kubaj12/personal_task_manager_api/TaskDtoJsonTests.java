@@ -108,4 +108,28 @@ public class TaskDtoJsonTests {
         assertThat(json.write(task)).hasJsonPathStringValue("@.deadline");
         assertThat(json.write(task)).extractingJsonPathStringValue("@.deadline").isEqualTo(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss+02:00").format(OffsetDateTime.parse("2026-01-10T12:00:00+02:00")));
     }
+
+    @Test
+    void taskDtoDeserializationTest() throws IOException {
+        TaskDto task = taskArray[0];
+        String taskString = """
+                {
+                  "id": 1,
+                  "user_id": 1,
+                  "title": "Aktualizacja dokumentacji",
+                  "description": null,
+                  "priority": "MEDIUM",
+                  "status": "TODO",
+                  "deadline": "2026-01-10T12:00:00+02:00"
+                }
+                """;
+        assertThat(json.parse(taskString)).isEqualTo(task);
+        assertThat(json.parseObject(taskString).id()).isEqualTo(1);
+        assertThat(json.parseObject(taskString).user_id()).isEqualTo(1);
+        assertThat(json.parseObject(taskString).title()).isEqualTo("Brak");
+        assertThat(json.parseObject(taskString).description()).isEqualTo("Aktualizacja dokumentacji");
+        assertThat(json.parseObject(taskString).priority()).isEqualTo(TaskPriority.MEDIUM);
+        assertThat(json.parseObject(taskString).status()).isEqualTo(TaskStatus.TODO);
+//        assertThat(json.parseObject(taskString).deadline()).isEqualTo(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss+02:00").format(OffsetDateTime.parse("2026-01-10T10:00:00+02:00"))); // TO-DO make changes, DataTimeFormatter.ofPatt... return string
+    }
 }

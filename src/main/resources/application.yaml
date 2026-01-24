@@ -1,6 +1,9 @@
 spring:
   application:
     name: personal-task-manager-api
+#  jackson:
+#    deserialization:
+#      adjust-dates-to-context-time-zone: false
   security:
     name: admin
     password: mojehaslo123
