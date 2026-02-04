@@ -30,6 +30,13 @@
 		<java.version>25</java.version>
 	</properties>
 	<dependencies>
+		<!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>tools.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>3.0.4</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
