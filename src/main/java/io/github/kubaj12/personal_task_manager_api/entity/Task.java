@@ -17,23 +17,20 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false)
     private Long user_id;
 
+    @Column(nullable = false)
     private String title;
     private String description;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
     private OffsetDateTime deadline;
 }
-
-//public record Tasks(@Id Long id, Long user_id, String title, String description, TasksPriority priority, TasksStatus status, OffsetDateTime deadline) {
-//    public Tasks {
-//        java.util.Objects.requireNonNull(priority, "Status cannot be null");
-//        java.util.Objects.requireNonNull(status, "Status cannot be null");
-//    }
-//}
