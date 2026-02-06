@@ -1,6 +1,9 @@
 spring:
   application:
     name: personal-task-manager-api
+#  jackson:
+#    deserialization:
+#      adjust-dates-to-context-time-zone: false
   security:
     name: admin
     password: mojehaslo123
@@ -10,6 +13,3 @@ spring:
 #    DB_CLOSE_ON_EXIT: FALSE
 #    AUTO_RECONNECT: TRUE
     MODE: PostgreSQL
-  jpa:
-    hibernate:
-      ddl-auto:none
