@@ -13,3 +13,10 @@ spring:
 #    DB_CLOSE_ON_EXIT: FALSE
 #    AUTO_RECONNECT: TRUE
     MODE: PostgreSQL
+#  h2:
+#    console:
+#      enable: true
+#  jpa:
+#    defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: none
