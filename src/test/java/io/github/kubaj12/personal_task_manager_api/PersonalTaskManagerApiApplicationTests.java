@@ -14,8 +14,9 @@ class PersonalTaskManagerApiApplicationTests {
 	}
 
 	@Test
-	void test() {
-		assertThat(1).isEqualTo(1);
+	@DirtiesContext
+	void ShouldAddANewUser() {
+
 	}
 
 	@Test
