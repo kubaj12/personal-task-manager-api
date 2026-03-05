@@ -1,1 +1,1 @@
-INSERT INTO users(email, password_hash) VALUES ('test@wp.pl','123',);
+-- INSERT INTO users(email, password_hash) VALUES ('test@wp.pl','123',);
