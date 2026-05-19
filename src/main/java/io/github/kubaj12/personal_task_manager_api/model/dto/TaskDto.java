@@ -1,8 +1,8 @@
-package io.github.kubaj12.personal_task_manager_api.dto;
+package io.github.kubaj12.personal_task_manager_api.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.github.kubaj12.personal_task_manager_api.entity.TaskPriority;
-import io.github.kubaj12.personal_task_manager_api.entity.TaskStatus;
+import io.github.kubaj12.personal_task_manager_api.model.entity.TaskPriority;
+import io.github.kubaj12.personal_task_manager_api.model.entity.TaskStatus;
 import lombok.Builder;
 // import lombok.extern.jackson.Jacksonized;
 

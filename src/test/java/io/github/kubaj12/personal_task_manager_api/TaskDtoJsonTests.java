@@ -1,9 +1,9 @@
 package io.github.kubaj12.personal_task_manager_api;
 
-import io.github.kubaj12.personal_task_manager_api.dto.TaskDto;
+import io.github.kubaj12.personal_task_manager_api.model.dto.TaskDto;
 
-import io.github.kubaj12.personal_task_manager_api.entity.TaskPriority;
-import io.github.kubaj12.personal_task_manager_api.entity.TaskStatus;
+import io.github.kubaj12.personal_task_manager_api.model.entity.TaskPriority;
+import io.github.kubaj12.personal_task_manager_api.model.entity.TaskStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
