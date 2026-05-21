@@ -22,10 +22,9 @@ public class UserController {
 
   @GetMapping
   //    public ResponseEntity<List<User>> getAllUsers() {
-
   public ResponseEntity<Void> getAllUsers() {
-    User user = User.builder().email("test@wp.pl").password("12345").created_at(OffsetDateTime.now()).build();
-    userRepository.save(user);
+//    User user = User.builder().email("test2@wp.pl").password("12345").created_at(OffsetDateTime.now()).build();
+//    userRepository.save(user);
     List<User> users = userRepository.findAll();
 
     log.info(users.size() + " users found");

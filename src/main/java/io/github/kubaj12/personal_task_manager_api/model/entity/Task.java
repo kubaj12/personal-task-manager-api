@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // only Hibernate can use this class
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // only Hibernate can use this constructor
 public class Task {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
