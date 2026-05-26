@@ -20,7 +20,7 @@ spring:
 #    console:
 #      enable: true
   jpa:
-#    defer-datasource-initialization: true
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: none
   sql:
