@@ -19,20 +19,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Import({SecurityConfig.class, TokenService.class})
 public class HomeAuthControllerIT {
 
-    @Autowired
-    MockMvc mockMvc;
+  @Autowired MockMvc mockMvc;
 
-    @Test
-    void whenRootUnauthenticatedThen401() throws Exception {
-        this.mockMvc.perform(get("/")).andExpect(status().isUnauthorized());
-    }
+  @Test
+  void whenRootUnauthenticatedThen401() throws Exception {
+    this.mockMvc.perform(get("/")).andExpect(status().isUnauthorized());
+  }
 
-    @Test
-    void whenRootAuthenticatedThenSaysHelloUser() throws Exception {
-        MvcResult result = this.mockMvc.perform(post("/token").with(httpBasic("Test","test"))).andExpect(status().isOk()).andReturn();
+  @Test
+  void whenRootAuthenticatedThenSaysHelloUser() throws Exception {
+    MvcResult result =
+        this.mockMvc
+            .perform(post("/token").with(httpBasic("Test", "test")))
+            .andExpect(status().isOk())
+            .andReturn();
 
-        String token = result.getResponse().getContentAsString();
+    String token = result.getResponse().getContentAsString();
 
-        this.mockMvc.perform(get("/").header("Authorization", "Bearer " + token)).andExpect(content().string("Test"));
-    }
+    this.mockMvc
+        .perform(get("/").header("Authorization", "Bearer " + token))
+        .andExpect(content().string("Test"));
+  }
 }

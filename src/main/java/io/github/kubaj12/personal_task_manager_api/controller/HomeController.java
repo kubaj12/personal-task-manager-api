@@ -10,8 +10,8 @@ import java.security.Principal;
 
 @RestController
 public class HomeController {
-    @GetMapping("/")
-    public String root(Principal principal) {
-        return principal.getName();
-    }
+  @GetMapping("/")
+  public String root(Principal principal) {
+    return principal.getName();
+  }
 }
