@@ -1,28 +1,29 @@
 spring:
   application:
     name: personal-task-manager-api
-#  jackson:
-#    deserialization:
-#      adjust-dates-to-context-time-zone: false
+  #  jackson:
+  #    deserialization:
+  #      adjust-dates-to-context-time-zone: false
   security:
     name: admin
     password: mojehaslo123
   datasource:
-#    url: jdbc:h2:mem:testdb
-#    DB_CLOSE_DELAY: -1
-#    DB_CLOSE_ON_EXIT: FALSE
-#    AUTO_RECONNECT: TRUE
+    #    url: jdbc:h2:mem:testdb
+    #    DB_CLOSE_DELAY: -1
+    #    DB_CLOSE_ON_EXIT: FALSE
+    #    AUTO_RECONNECT: TRUE
     MODE: PostgreSQL
-#    TO-DO: correct database connection
-#    datasource:
-#      url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
-#  h2:
-#    console:
-#      enable: true
+  #    TO-DO: correct database connection
+  #    datasource:
+  #      url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+  #  h2:
+  #    console:
+  #      enable: true
   jpa:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: none
+    open-in-view: false
   sql:
     init:
       mode: always
