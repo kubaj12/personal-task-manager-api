@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
@@ -33,8 +35,9 @@ public class SecurityConfig {
 
   @Bean
   public InMemoryUserDetailsManager users() {
+    // TO-DO: delete before deployment
     return new InMemoryUserDetailsManager(
-        User.withUsername("Test").password("{noop}test").authorities("read").build());
+        User.withUsername("Test").password(passwordEncoder().encode("test")).authorities("read").build());
   }
 
   @Bean
@@ -58,5 +61,10 @@ public class SecurityConfig {
     JWK jwk = new RSAKey.Builder(rsaKeys.publicKey()).privateKey(rsaKeys.privateKey()).build();
     JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
     return new NimbusJwtEncoder(jwks);
+  }
+
+  @Bean
+  PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
   }
 }
