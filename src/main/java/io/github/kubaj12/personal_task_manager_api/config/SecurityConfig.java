@@ -9,6 +9,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -37,13 +38,18 @@ public class SecurityConfig {
   public InMemoryUserDetailsManager users() {
     // TO-DO: delete before deployment
     return new InMemoryUserDetailsManager(
-        User.withUsername("Test").password(passwordEncoder().encode("test")).authorities("read").build());
+        User.withUsername("Test")
+            .password(passwordEncoder().encode("test"))
+            .authorities("read")
+            .build());
   }
 
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     return http.csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+        .authorizeHttpRequests(
+            auth ->
+                auth.requestMatchers(HttpMethod.GET, "/").permitAll().anyRequest().authenticated())
         .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
