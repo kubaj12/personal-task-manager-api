@@ -43,6 +43,15 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: false
     table: flyway_schema_history
+  mail:
+    host: ${SMTP_HOST:localhost}
+    port: 1025
+    username: ${SMTP_MAIL_USERNAME:dummy}
+    password: ${SMTP_MAIL_PASSWORD:dummy}
+    from: ${SMTP_MAIL_FROM:test@test.com}
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
 logging:
   level:
     org:
@@ -50,3 +59,6 @@ logging:
 rsa:
   public-key: classpath:certs/publickey.pem
   private-key: classpath:certs/privatekey_pkcs8.pem
+app:
+  mail:
+    from: ${SMTP_MAIL_FROM:test@test.com}
