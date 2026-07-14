@@ -1,4 +1,4 @@
-package io.github.kubaj12.personal_task_manager_api.model.entity;
+package io.github.kubaj12.personal_task_manager_api.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,8 +21,13 @@ public class User {
   private String email;
 
   @Column(nullable = false)
-  private String password_hash;
+  private String passwordHash;
 
   @Column(nullable = false)
-  OffsetDateTime created_at;
+  OffsetDateTime createdAt;
+
+  @PrePersist
+  public void prePersist() {
+    this.createdAt = OffsetDateTime.now();
+  }
 }
