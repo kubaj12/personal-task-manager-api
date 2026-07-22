@@ -1,4 +1,4 @@
-package io.github.kubaj12.personal_task_manager_api.model.entity;
+package io.github.kubaj12.personal_task_manager_api.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,7 +14,7 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // only Hibernate can use this constructor
 public class Task {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column(nullable = false)

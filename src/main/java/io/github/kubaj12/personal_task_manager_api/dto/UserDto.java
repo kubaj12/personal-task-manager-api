@@ -1,4 +1,4 @@
-package io.github.kubaj12.personal_task_manager_api.model.dto;
+package io.github.kubaj12.personal_task_manager_api.dto;
 
 import lombok.Builder;
 

@@ -1,6 +1,6 @@
 package io.github.kubaj12.personal_task_manager_api.controller;
 
-import io.github.kubaj12.personal_task_manager_api.model.entity.User;
+import io.github.kubaj12.personal_task_manager_api.entity.User;
 import io.github.kubaj12.personal_task_manager_api.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @Slf4j
