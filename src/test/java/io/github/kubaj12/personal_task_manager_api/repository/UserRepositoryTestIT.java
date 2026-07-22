@@ -74,11 +74,27 @@ class UserRepositoryTestIT {
     entityManager.persist(user);
     entityManager.flush();
     entityManager.clear();
-    
+
     userRepository.delete(user);
 
     User find = entityManager.find(User.class, user.getId());
 
     assertNull(find);
+  }
+
+  @Test
+  void shouldReturnTrueWhenUserExists() {
+    User user = User.builder().email("test@test.com.pl").passwordHash("hash").build();
+
+    entityManager.persist(user);
+    entityManager.flush();
+    entityManager.clear();
+
+    assertTrue(userRepository.existsByEmail("test@test.com.pl"));
+  }
+
+  @Test
+  void shouldReturnFalseWhenUserDoesNotExist() {
+    assertFalse(userRepository.existsByEmail("thisemaildoesntexist"));
   }
 }

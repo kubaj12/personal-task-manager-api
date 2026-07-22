@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
   private final UserRegistrationService userRegistartionService;
-//  private final UserMapper userMapper;
 
   @PostMapping("/sign-up")
   public ResponseEntity<RegistrationResponseDto> registerUser(
       @Valid @RequestBody RegistrationRequestDto registrationRequestDto) {
-//        User user = userRegistartionService.registerUser(userMapper.registrationRequestDtoToUser(registrationRequestDto));
-    RegistrationResponseDto registrationResponseDto = userRegistartionService.registerUser(registrationRequestDto);
+    
+        RegistrationResponseDto registrationResponseDto =
+        userRegistartionService.registerUser(registrationRequestDto);
     return ResponseEntity.ok(registrationResponseDto);
   }
 }
