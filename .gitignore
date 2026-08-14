@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 .DS_Store
 **/DS_Store
+diff.txt
 ### STS ###
 .apt_generated
 .classpath

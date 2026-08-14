@@ -19,8 +19,8 @@ public class RegistrationController {
   @PostMapping("/sign-up")
   public ResponseEntity<RegistrationResponseDto> registerUser(
       @Valid @RequestBody RegistrationRequestDto registrationRequestDto) {
-    
-        RegistrationResponseDto registrationResponseDto =
+
+    RegistrationResponseDto registrationResponseDto =
         userRegistartionService.registerUser(registrationRequestDto);
     return ResponseEntity.ok(registrationResponseDto);
   }
