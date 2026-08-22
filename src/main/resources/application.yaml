@@ -52,10 +52,12 @@ spring:
     port: 1025
     username: ${SMTP_MAIL_USERNAME:dummy}
     password: ${SMTP_MAIL_PASSWORD:dummy}
-    from: ${SMTP_MAIL_FROM:test@test.com}
     properties:
-      mail.smtp.auth: false
-      mail.smtp.starttls.enable: false
+      "[mail.smtp.auth]": false
+      "[mail.smtp.starttls.enable]": false
+      "[mail.smtp.connectiontimeout]": 5000
+      "[mail.smtp.timeout]": 3000
+      "[mail.smtp.writetimeout]": 5000
 server:
   port: 8090
 logging:
