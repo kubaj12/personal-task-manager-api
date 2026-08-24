@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @Slf4j
 @Configuration
 @SpringBootApplication
-@EnableJpaAuditing // do innej klasy
 public class PersonalTaskManagerApiApplication {
 
   public static void main(String[] args) {
