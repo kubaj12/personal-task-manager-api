@@ -26,6 +26,9 @@ public class User {
   @Column(nullable = false, updatable = false)
   OffsetDateTime createdAt;
 
+  @Column(nullable = false)
+  Boolean emailVerified;
+
   @PrePersist
   public void prePersist() {
     this.createdAt = OffsetDateTime.now();
