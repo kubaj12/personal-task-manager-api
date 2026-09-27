@@ -64,6 +64,10 @@ logging:
   level:
     org:
       flywaydb: INFO
+otp:
+  email-verification:
+    ttl: 5m
+    length: 6
 rsa:
   public-key: classpath:certs/publickey.pem
   private-key: classpath:certs/privatekey_pkcs8.pem

@@ -27,4 +27,13 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
 
         return problem;
     }
+
+    @ExceptionHandler(OtpLockAcquisitionException.class)
+    public ProblemDetail handleOtpLockAcquisitionException(OtpLockAcquisitionException exception) {
+        ProblemDetail problem = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        problem.setTitle("Problem with OTP lock acquisition");
+        problem.setDetail(exception.getMessage());
+
+        return problem;
+    }
 }
